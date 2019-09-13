@@ -156,6 +156,7 @@ var app = {
 
         window.addEventListener("interstitialClosed", function () {
             self.receivedEvent('interstitialClosed');
+            self.loadInterstitial();
         });
 
         window.addEventListener("interstitialWillOpen", function () {
@@ -212,6 +213,7 @@ var app = {
             onSuccess: function () {
                 self.receivedEvent('Initialized');
                 IronSourceAds.validateIntegration();
+                self.loadInterstitial();
             },
             onFailure: function () {
                 self.receivedEvent('Failed to initialize');
